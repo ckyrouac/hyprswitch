@@ -15,7 +15,6 @@ pub fn create_windows(
     app: &Application,
     _share: &Share,
     monitor_data_list: &mut HashMap<ApplicationWindow, (MonitorData, Monitor)>,
-    workspaces_per_row: u32,
     sender: Sender<bool>,
 ) -> anyhow::Result<()> {
     let monitors = get_monitors();
@@ -36,8 +35,8 @@ pub fn create_windows(
         let workspaces_flow = FlowBox::builder()
             .selection_mode(SelectionMode::None)
             .orientation(Orientation::Horizontal)
-            .max_children_per_line(workspaces_per_row)
-            .min_children_per_line(workspaces_per_row)
+            .max_children_per_line(100)
+            .min_children_per_line(100)
             .build();
         let workspaces_flow_overlay = Overlay::builder().child(&workspaces_flow).build();
 

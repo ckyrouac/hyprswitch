@@ -70,7 +70,6 @@ pub(super) fn start_gui_blocking(
                 app,
                 &share,
                 &mut monitor_data_list,
-                init_config.workspaces_per_row as u32,
                 visibility_sender.clone(),
             )
             .warn("Failed to create windows");
