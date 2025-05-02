@@ -146,8 +146,6 @@ pub fn collect_data(config: SimpleConfig) -> anyhow::Result<(HyprlandData, Optio
     } else {
         client_data = sort_clients(
             client_data,
-            config.ignore_workspaces,
-            config.ignore_monitors,
         );
     }
     // also remove offset of monitors (else gui will be offset)

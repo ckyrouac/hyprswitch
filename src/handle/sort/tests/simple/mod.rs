@@ -33,7 +33,7 @@ fn simple_1() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -69,7 +69,7 @@ fn simple_2() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -105,7 +105,7 @@ fn simple_3() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -141,7 +141,7 @@ fn simple_4() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("sorted clients:  {clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -178,7 +178,7 @@ fn simple_5() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -214,7 +214,7 @@ fn float_1() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -250,7 +250,7 @@ fn order_1() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -286,7 +286,7 @@ fn order_2() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -326,7 +326,7 @@ fn order_3() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 

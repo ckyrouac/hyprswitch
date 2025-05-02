@@ -184,24 +184,11 @@ async fn handle_update(
                         &data.hypr_data.workspaces,
                         &data.hypr_data.clients,
                         monitor_data,
-                        init_config.show_title,
-                        data.gui_config.show_workspaces_on_all_monitors,
                         init_config.size_factor,
                     );
 
                     trace!("Refresh window {:?}", window);
                     windows::update_windows(monitor_data, &data).warn("Failed to update windows");
-                }
-                // only open launcher when opening with default close mode
-                if data.gui_config.show_launcher {
-                    launcher.as_ref().inspect(|(window, entry, _)| {
-                        trace!("Showing launcher {:?}", window);
-                        windows += 1;
-                        window.set_visible(true);
-                        window.focus();
-                        entry.set_text("");
-                        entry.grab_focus();
-                    });
                 }
 
                 drop(data);

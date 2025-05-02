@@ -46,7 +46,7 @@ fn default() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -95,7 +95,7 @@ fn ignore_workspaces() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, true, false);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
     create_svg_from_client_tests(&clients, function!(), monitor_data);
 
@@ -144,7 +144,7 @@ fn ignore_monitor() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, false, true);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
 
     let clients = update_clients(clients, None, Some(&monitor_data));
@@ -196,7 +196,7 @@ fn ignore_monitor_ignore_workspace() {
     println!("updated clients: {clients:?} ({:?})", update.elapsed());
 
     let start = Instant::now();
-    let clients = sort_clients(clients, true, true);
+    let clients = sort_clients(clients);
     println!("{clients:?} ({:?})", start.elapsed());
 
     let clients = update_clients(clients, None, Some(&monitor_data));

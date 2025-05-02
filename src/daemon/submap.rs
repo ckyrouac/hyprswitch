@@ -102,69 +102,6 @@ pub(super) fn generate_submap(
             }
         };
 
-        // jump to index
-        match close {
-            CloseType::ModKeyRelease => {
-                // main_mod needed as it is still pressed
-                for i in 1..=9 {
-                    keyword_list.push((
-                        "bind",
-                        format!(
-                            "{} ,{}, exec, {} dispatch -o={}",
-                            main_mod, i, current_exe, i
-                        ),
-                    ));
-                    if let ReverseKey::Mod(modkey) = reverse_key.clone() {
-                        keyword_list.push((
-                            "bind",
-                            format!(
-                                "{} {},{}, exec, {} dispatch -o={} -r",
-                                main_mod, modkey, i, current_exe, i
-                            ),
-                        ));
-                    };
-                }
-            }
-            CloseType::Default => {
-                for i in 1..=9 {
-                    keyword_list.push((
-                        "bind",
-                        format!(
-                            ",{}, exec, {} dispatch -o={} && {} close",
-                            i, current_exe, i, current_exe
-                        ),
-                    ));
-                    if let ReverseKey::Mod(modkey) = reverse_key.clone() {
-                        keyword_list.push((
-                            "bind",
-                            format!(
-                                "{},{}, exec, {} dispatch -o={} -r && {} close",
-                                modkey, i, current_exe, i, current_exe
-                            ),
-                        ));
-                    };
-                }
-            }
-        };
-
-        // use arrow keys to navigate
-        match close {
-            CloseType::Default => {
-                keyword_list.push(("bind", format!(",right, exec, {} dispatch", current_exe)));
-                keyword_list.push(("bind", format!(",left, exec, {} dispatch -r", current_exe)));
-            }
-            CloseType::ModKeyRelease => {
-                keyword_list.push((
-                    "bind",
-                    format!("{},right, exec, {} dispatch", main_mod, current_exe),
-                ));
-                keyword_list.push((
-                    "bind",
-                    format!("{},left, exec, {} dispatch -r", main_mod, current_exe),
-                ));
-            }
-        }
-
         // bind = alt, o, exec, kill $(pidof hyprswitch)
         #[cfg(debug_assertions)]
         keyword_list.push((

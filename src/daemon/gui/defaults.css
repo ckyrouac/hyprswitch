@@ -8,7 +8,7 @@
     --bg-color: rgba(20, 20, 20, 1);
     --bg-color-hover: rgba(40, 40, 50, 1);
     --index-border-color: rgba(20, 170, 170, 0.7);
-    --border-radius: 12px;
+    --border-radius: 30px;
     --border-size: 3px;
 }
 
@@ -30,8 +30,7 @@
 }
 
 .window {
-    padding: 2px;
-
+    padding: 20px;
     color: rgb(245, 245, 245);
     border-radius: var(--border-radius);
     background-color: var(--bg-color);

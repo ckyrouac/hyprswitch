@@ -1,4 +1,3 @@
-use crate::daemon::gui::windows::click::click_monitor;
 use crate::daemon::gui::MonitorData;
 use crate::handle::get_monitors;
 use crate::{Share, Warn};
@@ -14,7 +13,7 @@ use tracing::trace;
 
 pub fn create_windows(
     app: &Application,
-    share: &Share,
+    _share: &Share,
     monitor_data_list: &mut HashMap<ApplicationWindow, (MonitorData, Monitor)>,
     workspaces_per_row: u32,
     sender: Sender<bool>,
@@ -42,7 +41,7 @@ pub fn create_windows(
             .build();
         let workspaces_flow_overlay = Overlay::builder().child(&workspaces_flow).build();
 
-        workspaces_flow_overlay.add_controller(click_monitor(share, monitor_id));
+        // workspaces_flow_overlay.add_controller(click_monitor(share, monitor_id));
 
         let window = ApplicationWindow::builder()
             .css_classes(vec!["window", "monitor", "background"])

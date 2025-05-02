@@ -6,7 +6,7 @@ use crate::handle::{clear_recent_clients, run_program, switch_to_active};
 use crate::{global, Active, GUISend, Share, UpdateCause, Warn};
 use anyhow::Context;
 use gtk4::glib::clone;
-use hyprland::shared::{Address, MonitorId, WorkspaceId};
+use hyprland::shared::Address;
 use std::ops::Deref;
 use std::thread;
 use tracing::{trace, warn};
@@ -16,24 +16,6 @@ pub(crate) fn gui_set_client(share: &Share, address: Address) {
     {
         let mut lock = latest.lock().expect("Failed to lock");
         lock.active = Some(Active::Client(address));
-        drop(lock);
-    }
-}
-
-pub(crate) fn gui_set_workspace(share: &Share, id: WorkspaceId) {
-    let (latest, _, _) = share.deref();
-    {
-        let mut lock = latest.lock().expect("Failed to lock");
-        lock.active = Some(Active::Workspace(id));
-        drop(lock);
-    }
-}
-
-pub(crate) fn gui_set_monitor(share: &Share, id: MonitorId) {
-    let (latest, _, _) = share.deref();
-    {
-        let mut lock = latest.lock().expect("Failed to lock");
-        lock.active = Some(Active::Monitor(id));
         drop(lock);
     }
 }
