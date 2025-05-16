@@ -35,6 +35,14 @@ pub fn init_windows(
             label = client.class.clone();
         }
 
+        if client.class.contains("Google-chrome") {
+            label = "Google chrome".to_string();
+        }
+
+        if client.class.contains("Postman") {
+            label = "Postman".to_string();
+        }
+
         if label.len() > 20 {
             label = format!("{}...", &label[0..17]);
         }
